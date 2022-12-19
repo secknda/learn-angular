@@ -1,4 +1,4 @@
-/* guard est une classe qui implémente l'interface CanActivate. 
+   /* guard est une classe qui implémente l'interface CanActivate. 
 La classe doit être  @Injectable()  et  providedIn: 'root'  comme un service,
  et doit contenir une méthode  canActivate() .
  Dans un sous-dossier  guards  du dossier  core  , créez  auth.guard.ts  : */
