@@ -1,3 +1,32 @@
+pipeline {
+    agent {
+        docker {
+            image 'node:10-alpine'
+        }
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'ng build --prod'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'ng test --watch=false'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'ng deploy --prod'
+            }
+        }
+    }
+}
+
+
+
 // #!groovy
 // pipeline {
 //     agent any
@@ -29,33 +58,36 @@
 //         }
 //     }
 // }
-pipeline {
-    agent any
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building project...'
-                // Ajoutez ici les étapes de construction de votre projet
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                // Ajoutez ici les étapes de test de votre projet
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying to staging environment...'
-                // Ajoutez ici les étapes de déploiement de votre projet sur un environnement de staging
-            }
-        }
-        stage('Release') {
-            steps {
-                echo 'Releasing to production environment...'
-                // Ajoutez ici les étapes de déploiement de votre projet sur un environnement de production
-            }
-        }
-    }
-}
+
+
+// pipeline {
+//     agent any
+
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 echo 'Building project...'
+//                 // Ajoutez ici les étapes de construction de votre projet
+//             }
+//         }
+//         stage('Test') {
+//             steps {
+//                 echo 'Running tests...'
+//                 // Ajoutez ici les étapes de test de votre projet
+//             }
+//         }
+//         stage('Deploy') {
+//             steps {
+//                 echo 'Deploying to staging environment...'
+//                 // Ajoutez ici les étapes de déploiement de votre projet sur un environnement de staging
+//             }
+//         }
+//         stage('Release') {
+//             steps {
+//                 echo 'Releasing to production environment...'
+//                 // Ajoutez ici les étapes de déploiement de votre projet sur un environnement de production
+//             }
+//         }
+//     }
+// }
