@@ -19,11 +19,11 @@ pipeline {
                 bat 'ng build --prod'
             }
         }
-        // stage('Test') {
-        //     steps {
-        //         sh 'ng test --watch=false'
-        //     }
-        // }
+        stage('Test') {
+            steps {
+                bat 'ng test --watch=false'
+            }
+        }
         // stage('Deploy') {
         //     steps {
         //         sh 'ng deploy --prod'
