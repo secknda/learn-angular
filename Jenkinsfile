@@ -4,8 +4,13 @@ pipeline {
             image 'node:10-alpine'
         }
     }
-
+    
     stages {
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/secknda/learn-angular.git']]])
+            }
+        }
         stage('Build') {
             steps {
                 sh 'npm install'
