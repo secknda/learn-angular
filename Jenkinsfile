@@ -7,11 +7,11 @@ pipeline {
     agent any
     
     stages {
-        stage('Checkout') {
-            steps {
-                bat "git clone https://github.com/secknda/learn-angular.git"
-            }
-        }
+        // stage('Checkout') {
+        //     steps {
+        //         bat "git clone https://github.com/secknda/learn-angular.git"
+        //     }
+        // }
 
         stage('Build') {
             steps {
